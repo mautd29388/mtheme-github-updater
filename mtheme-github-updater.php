@@ -9,16 +9,39 @@
  * License: license purchased
  */
 
-define('PLUGIN_SLUG', 'plugin-auto-update');
-$pluginFile = WP_PLUGIN_DIR . PLUGIN_SLUG;
+//define('PLUGIN_SLUG', 'plugin-auto-update');
+//$pluginFile = WP_PLUGIN_DIR . PLUGIN_SLUG;
+
+$projects 	= array();
+$projects[] = 'mtheme-github-updater';
+$projects[] = 'plugin-auto-update';
+
+/*
+ * Ensure get_plugins() function is available.
+ */
+include_once( ABSPATH . '/wp-admin/includes/plugin.php' );
 
 if ( !class_exists('mTheme_Github_Updater') ) {
 	require_once( 'class-mtheme-github-updater.php' );
-}
+} 
 if ( class_exists('mTheme_Github_Updater') ) {
 	
 	if ( is_admin() ) {
-	    new mTheme_Github_Updater( __FILE__, 'mautd29388', "mtheme-github-updater" );
+		
+		$plugins = get_plugins();
+		foreach ( (array) $plugins as $plugin => $headers ) {
+		
+			if ( isset($headers['Author']) && $headers['Author'] == 'mTheme' ) {
+				foreach ( $projects as $project ) {
+					if ( strchr($plugin, $project) ) {
+						$path = trailingslashit(WP_PLUGIN_DIR) . $plugin;
+						new mTheme_Github_Updater( $path, 'mautd29388', $project );
+						
+						break;
+					}
+				}
+			}
+		}
 	}
 }
 ?>
