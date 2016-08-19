@@ -21,29 +21,4 @@ if ( class_exists('mTheme_Github_Updater') ) {
 	    new mTheme_Github_Updater( __FILE__, 'mautd29388', "mtheme-github-updater" );
 	}
 }
-
-/* if ( !class_exists('WP_GitHub_Updater') ) {
-	require_once( 'class-github-updater.php' );
-}
-if ( class_exists( 'WP_GitHub_Updater' ) ) {
-
-	if ( is_admin() ) { // note the use of is_admin() to double check that this is happening in the admin
-
-		$config = array(
-				'slug'                => plugin_basename( $pluginFile ),
-				'plugin'              => plugin_basename( $pluginFile ),
-				'proper_folder_name'  => PLUGIN_SLUG,
-				'api_url'             => 'https://api.github.com/repos/mautd29388/' . PLUGIN_SLUG,
-				'raw_url'             => 'https://github.com/mautd29388/' . PLUGIN_SLUG . '/tree/master',
-				'github_url'          => 'https://github.com/mautd29388/' . PLUGIN_SLUG,
-				'zip_url'             => 'https://github.com/mautd29388/' . PLUGIN_SLUG . '/archive/master.zip',
-				'sslverify'           => true,
-				'access_token'        => ''
-		);
-
-		//new WP_GitHub_Updater( $config );
-
-	}
-
-} */
 ?>
