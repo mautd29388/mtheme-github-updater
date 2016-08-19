@@ -119,15 +119,9 @@ class mTheme_Github_Updater {
         }
         $response->download_link = $downloadLink;
 
-        // We're going to parse the GitHub markdown release notes, include the parser
-       /*  require_once( plugin_dir_path( __FILE__ ) . "Parsedown.php" ); */
-
         // Create tabs in the lightbox
         $response->sections = array(
             'description' => $this->pluginData["Description"],
-            /* 'changelog' => class_exists( "Parsedown" )
-                ? Parsedown::instance()->parse( $this->githubAPIResult->body )
-                : $this->githubAPIResult->body */
         );
 
         // Gets the required version of WP if available
