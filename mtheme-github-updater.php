@@ -12,15 +12,13 @@
 define('PLUGIN_SLUG', 'plugin-auto-update');
 $pluginFile = WP_PLUGIN_DIR . PLUGIN_SLUG;
 
-$pluginFile = plugin_dir_path( __FILE__);
-
 if ( !class_exists('mTheme_Github_Updater') ) {
 	require_once( 'class-mtheme-github-updater.php' );
 }
 if ( class_exists('mTheme_Github_Updater') ) {
 	
-	if ( is_admin() && file_exists('pluginFile') ) {
-	    new mTheme_Github_Updater( $pluginFile, 'mautd29388', PLUGIN_SLUG );
+	if ( is_admin() ) {
+	    new mTheme_Github_Updater( __FILE__, 'mautd29388', "mtheme-github-updater" );
 	}
 }
 
