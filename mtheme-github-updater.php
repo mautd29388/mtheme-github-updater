@@ -3,7 +3,7 @@
  * Plugin Name: mTheme Github Updater
  * Plugin URI: #
  * Description: Plugin accompany the themes of mTheme.
- * Version: 1.0.4
+ * Version: 1.0.5
  * Author: mTheme
  * Author URI: http://themeforest.net/user/mtheme_market
  * License: license purchased
