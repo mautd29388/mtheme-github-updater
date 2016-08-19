@@ -12,6 +12,8 @@
 define('PLUGIN_SLUG', 'plugin-auto-update');
 $pluginFile = WP_PLUGIN_DIR . PLUGIN_SLUG;
 
+$pluginFile = plugin_dir_path( __FILE__);
+
 if ( !class_exists('mTheme_Github_Updater') ) {
 	require_once( 'class-mtheme-github-updater.php' );
 }
@@ -22,7 +24,7 @@ if ( class_exists('mTheme_Github_Updater') ) {
 	}
 }
 
-if ( !class_exists('WP_GitHub_Updater') ) {
+/* if ( !class_exists('WP_GitHub_Updater') ) {
 	require_once( 'class-github-updater.php' );
 }
 if ( class_exists( 'WP_GitHub_Updater' ) ) {
@@ -45,5 +47,5 @@ if ( class_exists( 'WP_GitHub_Updater' ) ) {
 
 	}
 
-}
+} */
 ?>
